@@ -15,12 +15,12 @@ def get_current_branch():
 def push_branch_to_github(branch):
     run(f"git push -u origin {branch}")
 
-def get_commits_not_in_master():
-    return run("git log master..HEAD --pretty=format:'%h %s'")
+def get_commits_not_in_main_branch(main_branch="main"):
+    return run(f"git log {main_branch}..HEAD --pretty=format:'%h %s'")
 
-def create_pull_request(branch, tmp_path):
+def create_pull_request(branch, tmp_path, main_branch="main"):
     pr_title = f"PR from {branch}"
-    run(f'gh pr create --base master --head {branch} --title "{pr_title}" --body-file "{tmp_path}"') 
-    
+    run(f'gh pr create --base {main_branch} --head {branch} --title "{pr_title}" --body-file "{tmp_path}"') 
+
 def read_template():
     return read_file(".github/pull_request_template.md")
