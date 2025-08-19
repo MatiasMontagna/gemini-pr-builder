@@ -13,9 +13,10 @@ def main():
     template = read_template()
     pr_body = Client().build_pr_body(template, commits, user_context)
     tmp_path = write_to_tempfile(pr_body)	
-    create_pull_request(branch, tmp_path, main_branch)
+    pr_url = create_pull_request(branch, tmp_path, main_branch)
     cleanup_tempfile(tmp_path)
     print("Pull request created!")
+    print(pr_url)
 
 if __name__ == "__main__":
     main()

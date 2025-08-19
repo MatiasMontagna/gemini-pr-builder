@@ -20,7 +20,8 @@ def get_commits_not_in_main_branch(main_branch="main"):
 
 def create_pull_request(branch, tmp_path, main_branch="main"):
     pr_title = f"PR from {branch}"
-    run(f'gh pr create --base {main_branch} --head {branch} --title "{pr_title}" --body-file "{tmp_path}"') 
+    pr_url = run(f'gh pr create --base {main_branch} --head {branch} --title "{pr_title}" --body-file "{tmp_path}"')
+    return pr_url 
 
 def read_template():
     return read_file(".github/pull_request_template.md")
