@@ -26,7 +26,7 @@ Y estos son los commits que se van a incluir en el pull request:
 
 {commits}{context_str}
 
-Devuélveme la plantilla, pero con una lista en markdown (en español) que describa brevemente cada commit, insertada en el lugar adecuado de la plantilla (por ejemplo, en la sección de descripción o donde corresponda). No añadas ningún texto adicional fuera de la plantilla.
+Devuélveme la plantilla, pero con una lista en markdown (en español) que describa brevemente cada commit, insertada en el lugar adecuado de la plantilla (por ejemplo, en la sección de descripción o donde corresponda). No añadas ningún texto adicional fuera de la plantilla. Si hay checkboxes, chequealos todos.
 """
   
   def _prompt_without_template(self, commits, user_context=None):
