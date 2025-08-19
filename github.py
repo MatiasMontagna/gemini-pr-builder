@@ -16,7 +16,7 @@ def push_branch_to_github(branch):
     run(f"git push -u origin {branch}")
 
 def get_commits_not_in_main_branch(main_branch="main"):
-    return run(f"git log {main_branch}..HEAD --pretty=format:'%h %s'")
+    return run(f"git log {main_branch}..HEAD --pretty=format:'%h %s' --reverse")
 
 def create_pull_request(branch, tmp_path, main_branch="main"):
     pr_title = f"PR from {branch}"
